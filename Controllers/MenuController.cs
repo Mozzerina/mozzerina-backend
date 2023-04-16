@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Mozzerina.Data;
 using Mozzerina.Data.DTO;
+using Mozzerina.Models;
 using Newtonsoft.Json;
 
 namespace Mozzerina.Controllers
@@ -18,16 +19,23 @@ namespace Mozzerina.Controllers
         [HttpGet]
         public async Task<IActionResult> GetMenu()
         {
-            MenuDto menu = new()
+            var drink = await _dataContext.Drinks.ToListAsync();
+            var food = await _dataContext.Foods.ToListAsync();
+            var athomecoffee = await _dataContext.AtHomeCoffees.ToListAsync();
+            var merchandise = await _dataContext.Merchandises.ToListAsync();
+            var giftcard = await _dataContext.GiftCards.ToListAsync();
+            var d = new Dictionary<string, List<Drink>> { { "Drinks", drink } };
+            var f = new Dictionary<string, List<Food>> { { "Food", food } };
+            var a = new Dictionary<string, List<AtHomeCoffee>> { { "At Home Coffee", athomecoffee } };
+            var m = new Dictionary<string, List<Merchandise>> { { "Merchandise", merchandise } };
+            var g = new Dictionary<string, List<GiftCard>> { { "Gift Card", giftcard } };
+
+            List<object> obj = new()
             {
-                Drink = await _dataContext.Drinks.ToListAsync(),
-                Food = await _dataContext.Foods.ToListAsync(),
-                AtHomeCoffee = await _dataContext.AtHomeCoffees.ToListAsync(),
-                Merchandise = await _dataContext.Merchandises.ToListAsync(),
-                GiftCard = await _dataContext.GiftCards.ToListAsync(),
+                d, f, a, m, g
             };
-            string json = JsonConvert.SerializeObject(menu, Formatting.Indented);
-            return Ok(json);
+
+            return Ok(obj);
         }
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using Mozzerina.Data;
 using Mozzerina.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Mozzerina.DbInitializer
 {
@@ -82,27 +83,32 @@ namespace Mozzerina.DbInitializer
                     new Food
                     {
                         Name = "Гарячий сніданок",
-                        Url = "/menu/food/hot-breakfast"
+                        Url = "/menu/food/hot-breakfast",
+                        Image = ImageSrc("Images/Food/hot-breakfast.png")
                     },
                     new Food
                     {
                         Name = "Пекарня",
-                        Url = "/menu/food/bakery"
+                        Url = "/menu/food/bakery",
+                        Image = ImageSrc("Images/Food/backery.png")
                     },
                     new Food
                     {
                         Name = "Обід",
-                        Url = "/menu/food/lunch"
+                        Url = "/menu/food/lunch",
+                        Image = ImageSrc("Images/Food/lunch.png")
                     },
                     new Food
                     {
                         Name = "Закуски та солодощі",
-                        Url = "/menu/food/snacks-sweets"
+                        Url = "/menu/food/snacks-sweets",
+                        Image = ImageSrc("Images/Food/snack.png")
                     },
                     new Food
                     {
                         Name = "Вівсянка та йогурт",
-                        Url = "/menu/food/oatmeal-yogurt"
+                        Url = "/menu/food/oatmeal-yogurt",
+                        Image = ImageSrc("Images/Food/yogurt.png")
                     }
                     );
             }
@@ -112,12 +118,14 @@ namespace Mozzerina.DbInitializer
                     new AtHomeCoffee
                     {
                         Name = "VIA Instant",
-                        Url = "/menu/at-home-coffee/via-instant"
+                        Url = "/menu/at-home-coffee/via-instant",
+                        Image = ImageSrc("Images/AtHomeCoffee/via.png")
                     },
                     new AtHomeCoffee
                     {
                         Name = "Ціла квасоля",
-                        Url = "/menu/at-home-coffee/whole-bean"
+                        Url = "/menu/at-home-coffee/whole-bean",
+                        Image = ImageSrc("Images/AtHomeCoffee/wholebean.png")
                     }
                     );
             }
@@ -127,27 +135,32 @@ namespace Mozzerina.DbInitializer
                     new Merchandise
                     {
                         Name = "Холодні чашки",
-                        Url = "/menu/merchandise/cold-cups"
+                        Url = "/menu/merchandise/cold-cups",
+                        Image = ImageSrc("Images/Merchandise/coldcup.png")
                     },
                     new Merchandise
                     {
                         Name = "Стакани",
-                        Url = "/menu/merchandise/tumblers"
+                        Url = "/menu/merchandise/tumblers",
+                        Image = ImageSrc("Images/Merchandise/Tumblers.png")
                     },
                     new Merchandise
                     {
                         Name = "Кружки",
-                        Url = "/menu/merchandise/mugs"
+                        Url = "/menu/merchandise/mugs",
+                        Image = ImageSrc("Images/Merchandise/Mugs.png")
                     },
                     new Merchandise
                     {
                         Name = "Пляшки з водою",
-                        Url = "/menu/merchandise/water-bottles"
+                        Url = "/menu/merchandise/water-bottles",
+                        Image = ImageSrc("Images/Merchandise/WaterBottles.png")
                     },
                     new Merchandise
                     {
                         Name = "Інші",
-                        Url = "/menu/merchandise/other"
+                        Url = "/menu/merchandise/other",
+                        Image = ImageSrc("Images/Merchandise/other.png")
                     }
                     );
             }
@@ -157,17 +170,20 @@ namespace Mozzerina.DbInitializer
                     new GiftCard
                     {
                         Name = "З днем народження",
-                        Url = "/menu/gift-cards/happy-birthday"
+                        Url = "/menu/gift-cards/happy-birthday",
+                        Image = ImageSrc("Images/GiftCard/happy.png")
                     },
                     new GiftCard
                     {
                         Name = "Дякую",
-                        Url = "/menu/gift-cards/thank-you"
+                        Url = "/menu/gift-cards/thank-you",
+                        Image = ImageSrc("Images/GiftCard/thank.png")
                     },
                     new GiftCard
                     {
                         Name = "Традиційні",
-                        Url = "/menu/gift-cards/traditional"
+                        Url = "/menu/gift-cards/traditional",
+                        Image = ImageSrc("Images/GiftCard/Traditional.png")
                     }
                     );
             }
