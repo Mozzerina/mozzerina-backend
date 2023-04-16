@@ -75,3 +75,4 @@ C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\Microsoft.Entit
 C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\Newtonsoft.Json.dll

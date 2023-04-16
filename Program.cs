@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Mozzerina.Data;
 using Mozzerina.DbInitializer;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 

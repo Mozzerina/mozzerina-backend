@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Mozzerina.Data;
 using Mozzerina.Data.DTO;
+using Newtonsoft.Json;
 
 namespace Mozzerina.Controllers
 {
@@ -25,8 +26,8 @@ namespace Mozzerina.Controllers
                 Merchandise = await _dataContext.Merchandises.ToListAsync(),
                 GiftCard = await _dataContext.GiftCards.ToListAsync(),
             };
-
-            return Ok(menu);
+            string json = JsonConvert.SerializeObject(menu, Formatting.Indented);
+            return Ok(json);
         }
     }
 }
