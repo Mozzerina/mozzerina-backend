@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using Mozzerina.Data;
 using Mozzerina.Models;
 
@@ -7,9 +8,20 @@ namespace Mozzerina.DbInitializer
     public class DbInitializer : IDbInitializer
     {
         private readonly MozzerinaContext _dataContext;
-        public DbInitializer(MozzerinaContext dataContext)
+        private readonly IHostEnvironment _hostEnvironment;
+        public DbInitializer(MozzerinaContext dataContext, IHostEnvironment hostEnvironment)
         {
             _dataContext = dataContext;
+            _hostEnvironment = hostEnvironment;
+        }
+        public string ImageSrc(string img)
+        {
+            string imagePath = Path.Combine(_hostEnvironment.ContentRootPath, img);
+            byte[] imageBytes = System.IO.File.ReadAllBytes(imagePath);
+            string base64String = Convert.ToBase64String(imageBytes);
+            string imgSrc = string.Format("data:image/jpeg;base64,{0}", base64String);
+            
+            return imgSrc;
         }
         public void Initialize()
         {
@@ -23,37 +35,44 @@ namespace Mozzerina.DbInitializer
                     new Drink
                     {
                         Name = "Гаряча кава",
-                        Url = "/menu/drinks/hot-coffees"
+                        Url = "/menu/drinks/hot-coffees",
+                        Image = ImageSrc("Images/Menu/frappuccino.png")
                     },
                     new Drink
                     {
                         Name = "Гарячі чаї",
-                        Url = "/menu/drinks/hot-teas"
+                        Url = "/menu/drinks/hot-teas",
+                        Image = ImageSrc("Images/Menu/hotTea.png")
                     },
                     new Drink
                     {
                         Name = "Гарячі напої",
-                        Url = "/menu/drinks/hot-drinks"
+                        Url = "/menu/drinks/hot-drinks",
+                        Image = ImageSrc("Images/Menu/hotDrink.png")
                     },
                     new Drink
                     {
                         Name = "Frappuccino",
-                        Url = "/menu/drinks/frappuccino-blended-beverages"
+                        Url = "/menu/drinks/frappuccino-blended-beverages",
+                        Image = ImageSrc("Images/Menu/frappuccino.png")
                     },
                     new Drink
                     {
                         Name = "Холодна кава",
-                        Url = "/menu/drinks/cold-coffees"
+                        Url = "/menu/drinks/cold-coffees",
+                        Image = ImageSrc("Images/Menu/coldCoffee.png")
                     },
                     new Drink
                     {
                         Name = "Холодні чаї",
-                        Url = "/menu/drinks/iced-teas"
+                        Url = "/menu/drinks/iced-teas",
+                        Image = ImageSrc("Images/Menu/icedTea.png")
                     },
                     new Drink
                     {
                         Name = "Холодні напої",
-                        Url = "/menu/drinks/cold-drinks"
+                        Url = "/menu/drinks/cold-drinks",
+                        Image = ImageSrc("Images/Menu/coldDrink.png")
                     }
                     );
             }
