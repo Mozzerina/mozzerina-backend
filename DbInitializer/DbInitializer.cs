@@ -2,20 +2,21 @@
 using Microsoft.EntityFrameworkCore;
 using Mozzerina.Data;
 using Mozzerina.Models;
-using System.Collections.Generic;
 
 namespace Mozzerina.DbInitializer
 {
     public class DbInitializer : IDbInitializer
     {
         private readonly MozzerinaContext _dataContext;
+        private readonly IHostEnvironment _hostEnvironment;
         public DbInitializer(MozzerinaContext dataContext, IHostEnvironment hostEnvironment)
         {
             _dataContext = dataContext;
+            _hostEnvironment = hostEnvironment;
         }
-        public static Dictionary<string, string> GetHrefSpanDictionary()
+        public Dictionary<string, string> GetHrefSpanDictionary()
         {
-            string path = Path.Combine(@"C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\ParseInfo", "menu.txt");
+            string path = Path.Combine(_hostEnvironment.ContentRootPath, "ParseInfo/menu.txt");
 
             string html = File.ReadAllText(path);
 
@@ -36,9 +37,9 @@ namespace Mozzerina.DbInitializer
 
             return result;
         }
-        public static List<string> GetImagesDictionary()
+        public List<string> GetImagesDictionary()
         {
-            string path = Path.Combine(@"C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\ParseInfo", "imgMenu.txt");
+            string path = Path.Combine(_hostEnvironment.ContentRootPath, "ParseInfo/imgMenu.txt");
 
             string html = File.ReadAllText(path);
 
