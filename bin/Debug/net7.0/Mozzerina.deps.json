@@ -9,6 +9,7 @@
       "Mozzerina/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
+          "HtmlAgilityPack": "1.11.46",
           "Microsoft.AspNetCore.OpenApi": "7.0.4",
           "Microsoft.EntityFrameworkCore": "7.0.5",
           "Microsoft.EntityFrameworkCore.Design": "7.0.5",
@@ -61,6 +62,14 @@
           "lib/net6.0/BCrypt.Net-Next.dll": {
             "assemblyVersion": "4.0.3.0",
             "fileVersion": "4.0.3.0"
+          }
+        }
+      },
+      "HtmlAgilityPack/1.11.46": {
+        "runtime": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {
+            "assemblyVersion": "1.11.46.0",
+            "fileVersion": "1.11.46.0"
           }
         }
       },
@@ -719,6 +728,13 @@
       "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
       "path": "bcrypt.net-next/4.0.3",
       "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
+    },
+    "HtmlAgilityPack/1.11.46": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dLMn4EVfJBHWmWK4Uh0XGD76FPLHI0qr2Tm0s1m/xmgiHb1JUb9zB8AzO8HtrkBBlMN6JfCUBYddhqC0hZNR+g==",
+      "path": "htmlagilitypack/1.11.46",
+      "hashPath": "htmlagilitypack.1.11.46.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",

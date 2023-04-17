@@ -47,11 +47,11 @@ namespace Mozzerina.Controllers
         public async Task<IActionResult> Login(RegisterDto request)
         {
             User? temp = await _dataContext.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
-            if(temp != null)
+            if (temp != null)
             {
                 return BadRequest("This email is already exist");
             }
-            string passwordHash 
+            string passwordHash
                 = BCrypt.Net.BCrypt.HashPassword(request.Password);
 
             User user = new()
@@ -69,11 +69,11 @@ namespace Mozzerina.Controllers
         public async Task<IActionResult> Login(LoginDto request)
         {
             User? user = await _dataContext.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
-            if(user == null)
+            if (user == null)
             {
                 return BadRequest("Email aren`t exist");
             }
-            if(!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
+            if (!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
             {
                 return BadRequest("Wrong password");
             }

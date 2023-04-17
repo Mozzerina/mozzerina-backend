@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.46, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.4, )"

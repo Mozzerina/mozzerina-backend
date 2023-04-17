@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Oq3IdWd6KyOQZobUQ+lCFU2r7UkVYNJyIoAxfj1C2KOuTLucJ1FauZ9iR9y0E2Ii5wEGnoWXSkUR3zuBI9UTyQ==",
+  "dgSpecHash": "dSO7FTPJpl8s2cTR2075PeqV6U2IjiNS8ZF5k4diE2mWXUFBtEODXH3dB0NUcq1Vg0NgE/i9WpvrS+U5CAkZzQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ddazk\\source\\repos\\Mozzerina\\Mozzerina\\Mozzerina.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ddazk\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\ddazk\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\ddazk\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\ddazk\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512",
     "C:\\Users\\ddazk\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ddazk\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.4\\microsoft.aspnetcore.openapi.7.0.4.nupkg.sha512",
     "C:\\Users\\ddazk\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

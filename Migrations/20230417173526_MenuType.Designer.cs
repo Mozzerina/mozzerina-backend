@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Mozzerina.Data;
 
@@ -10,9 +11,11 @@ using Mozzerina.Data;
 namespace Mozzerina.Migrations
 {
     [DbContext(typeof(MozzerinaContext))]
-    partial class MozzerinaContextModelSnapshot : ModelSnapshot
+    [Migration("20230417173526_MenuType")]
+    partial class MenuType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

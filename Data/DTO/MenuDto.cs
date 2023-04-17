@@ -4,7 +4,7 @@ namespace Mozzerina.Data.DTO
 {
     public class MenuDto
     {
-        public string Name { get; set; } = "Drinks";
+        public required string Name { get; set; }
         public List<object> Items { get; set; }
     }
 }

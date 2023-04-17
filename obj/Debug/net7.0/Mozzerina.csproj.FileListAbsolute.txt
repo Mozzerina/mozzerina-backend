@@ -76,3 +76,4 @@ C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\Microsoft.Exten
 C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\System.CodeDom.dll
 C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\HtmlAgilityPack.dll
