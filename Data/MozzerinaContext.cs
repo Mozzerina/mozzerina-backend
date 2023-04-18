@@ -9,6 +9,8 @@ namespace Mozzerina.Data
         :base(options) { }
         public DbSet<User> Users => Set<User>();
         public DbSet<MenuType> MenuTypes => Set<MenuType>();
+        public DbSet<ProductType> ProductTypes => Set<ProductType>();
+        public DbSet<SubProduct> SubProducts => Set<SubProduct>();
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.UseCollation("Ukrainian_CI_AS");

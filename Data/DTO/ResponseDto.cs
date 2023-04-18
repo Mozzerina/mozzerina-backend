@@ -1,8 +1,6 @@
-﻿using Mozzerina.Models;
-
-namespace Mozzerina.Data.DTO
+﻿namespace Mozzerina.Data.DTO
 {
-    public class MenuDto
+    public class ResponseDto
     {
         public required string Name { get; set; }
         public List<object> Items { get; set; }

@@ -11,8 +11,8 @@ using Mozzerina.Data;
 namespace Mozzerina.Migrations
 {
     [DbContext(typeof(MozzerinaContext))]
-    [Migration("20230417173526_MenuType")]
-    partial class MenuType
+    [Migration("20230418163302_SubProductType")]
+    partial class SubProductType
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,6 +50,54 @@ namespace Mozzerina.Migrations
                     b.ToTable("MenuTypes");
                 });
 
+            modelBuilder.Entity("Mozzerina.Models.ProductType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("IdMenuType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdMenuType");
+
+                    b.ToTable("ProductTypes");
+                });
+
+            modelBuilder.Entity("Mozzerina.Models.SubProduct", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductTypeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductTypeId");
+
+                    b.ToTable("SubProducts");
+                });
+
             modelBuilder.Entity("Mozzerina.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -77,6 +125,28 @@ namespace Mozzerina.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Mozzerina.Models.ProductType", b =>
+                {
+                    b.HasOne("Mozzerina.Models.MenuType", "MenuType")
+                        .WithMany()
+                        .HasForeignKey("IdMenuType")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MenuType");
+                });
+
+            modelBuilder.Entity("Mozzerina.Models.SubProduct", b =>
+                {
+                    b.HasOne("Mozzerina.Models.ProductType", "ProductType")
+                        .WithMany()
+                        .HasForeignKey("ProductTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ProductType");
                 });
 #pragma warning restore 612, 618
         }

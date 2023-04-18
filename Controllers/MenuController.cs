@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Mozzerina.Data;
 using Mozzerina.Data.DTO;
-using Mozzerina.Migrations;
 
 namespace Mozzerina.Controllers
 {
@@ -27,13 +26,13 @@ namespace Mozzerina.Controllers
             var merchandises = await _dataContext.MenuTypes.Where(u => u.Href.Contains("merchandise")).ToListAsync();
             var gift = await _dataContext.MenuTypes.Where(u => u.Href.Contains("gift-cards")).ToListAsync();
 
-            List<MenuDto> menu = new()
+            List<ResponseDto> menu = new()
             {
-                new MenuDto {Name = "Напої", Items = drinks.ToList<object>()},
-                new MenuDto {Name = "Харчування", Items = foods.ToList<object>()},
-                new MenuDto {Name = "Домашня кава", Items = atHome.ToList<object>()},
-                new MenuDto {Name = "Товари", Items = merchandises.ToList<object>()},
-                new MenuDto {Name = "Подарункові карти", Items = gift.ToList<object>()},
+                new ResponseDto {Name = "Напої", Items = drinks.ToList<object>()},
+                new ResponseDto {Name = "Харчування", Items = foods.ToList<object>()},
+                new ResponseDto {Name = "Домашня кава", Items = atHome.ToList<object>()},
+                new ResponseDto {Name = "Товари", Items = merchandises.ToList<object>()},
+                new ResponseDto {Name = "Подарункові карти", Items = gift.ToList<object>()},
             };
 
             return Ok(menu);

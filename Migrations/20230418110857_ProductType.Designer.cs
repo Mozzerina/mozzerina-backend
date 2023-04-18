@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Mozzerina.Data;
 
@@ -10,9 +11,11 @@ using Mozzerina.Data;
 namespace Mozzerina.Migrations
 {
     [DbContext(typeof(MozzerinaContext))]
-    partial class MozzerinaContextModelSnapshot : ModelSnapshot
+    [Migration("20230418110857_ProductType")]
+    partial class ProductType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,32 +72,6 @@ namespace Mozzerina.Migrations
                     b.ToTable("ProductTypes");
                 });
 
-            modelBuilder.Entity("Mozzerina.Models.SubProduct", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProductTypeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductTypeId");
-
-                    b.ToTable("SubProducts");
-                });
-
             modelBuilder.Entity("Mozzerina.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -133,17 +110,6 @@ namespace Mozzerina.Migrations
                         .IsRequired();
 
                     b.Navigation("MenuType");
-                });
-
-            modelBuilder.Entity("Mozzerina.Models.SubProduct", b =>
-                {
-                    b.HasOne("Mozzerina.Models.ProductType", "ProductType")
-                        .WithMany()
-                        .HasForeignKey("ProductTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ProductType");
                 });
 #pragma warning restore 612, 618
         }
