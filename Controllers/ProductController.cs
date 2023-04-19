@@ -17,30 +17,15 @@ namespace Mozzerina.Controllers
             _dataContext = dataContext;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddProduct(ProductRequest request)
+        [HttpGet]
+        public async Task<IActionResult> GetProduct(int id)
         {
-            var subproduct = await _dataContext.SubProducts.FirstOrDefaultAsync(s => s.Name == request.Name);
-
-            var product = new Product
+            var product = await _dataContext.Products.FirstOrDefaultAsync(p => p.SubProductId == id);
+            
+            if(product == null)
             {
-                Name = subproduct.Name,
-                Image = subproduct.Image,
-                Description = request.Product.Description,
-                Ingredients = request.Product.Ingredients,
-                Allergens = request.Product.Allergens,
-                Nutrition = request.Product.Nutrition,
-                Callories = request.Product.Callories,
-                Short = request.Product.Callories,
-                Tall = (int)(request.Product.Callories * 1.5),
-                Grande = (int)(request.Product.Callories * 2),
-                Venti = (int)(request.Product.Callories * 2.5),
-                SubProductId = subproduct.Id
-            };
-
-            await _dataContext.Products.AddAsync(product);
-
-            await _dataContext.SaveChangesAsync();
+                return NotFound("Product not found");
+            }
 
             return Ok(product);
         }
