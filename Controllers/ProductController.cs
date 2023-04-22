@@ -40,7 +40,8 @@ namespace Mozzerina.Controllers
                         p.Allergens,
                         p.Nutrition,
                     },
-                    sizeOpts = p.SubProduct.ProductType.MenuType.Id < 8
+                    sizeOpts = p.SubProduct.ProductType.MenuType.Id < 8,
+                    link = p.SubProduct.ProductType.MenuType.Href
                 })
                 .FirstOrDefaultAsync();
 
