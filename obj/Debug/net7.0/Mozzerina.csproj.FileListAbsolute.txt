@@ -77,3 +77,7 @@ C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\Mono.TextTempla
 C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\System.CodeDom.dll
 C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\HtmlAgilityPack.dll
+C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\Scrutor.dll
+C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\ddazk\source\repos\Mozzerina\Mozzerina\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll

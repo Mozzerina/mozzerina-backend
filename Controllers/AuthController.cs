@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Mozzerina.Data;
@@ -43,13 +44,13 @@ namespace Mozzerina.Controllers
 
             return jwt;
         }
-        [HttpPost("register")]
+        [HttpPost("register"), Authorize]
         public async Task<IActionResult> Login(RegisterDto request)
         {
             User? temp = await _dataContext.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
             if (temp != null)
             {
-                return BadRequest("This email is already exist");
+                return Conflict("This email is already exist");
             }
             string passwordHash
                 = BCrypt.Net.BCrypt.HashPassword(request.Password);

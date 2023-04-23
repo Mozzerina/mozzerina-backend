@@ -1,8 +1,9 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using Mozzerina.Data;
 using Mozzerina.DbInitializer;
-using System.Text.Json.Serialization;
-using System.Text.Json;
+using Swashbuckle.AspNetCore.Filters;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
@@ -14,16 +15,27 @@ builder.Services.AddCors(options =>
         builder =>
         {
             builder.AllowAnyOrigin()
-            .WithMethods("POST", "GET", "DELETE", "PUT")
             .AllowAnyHeader()
+            .WithMethods("POST", "GET", "DELETE", "PUT")
             .SetPreflightMaxAge(TimeSpan.FromSeconds(3600));
         });
 });
 
+builder.Services.AddAuthentication().AddJwtBearer();
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey
+    });
+
+    options.OperationFilter<SecurityRequirementsOperationFilter>();
+});
 
 builder.Services.AddDbContext<MozzerinaContext>(options =>
 {
